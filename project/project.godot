@@ -8,19 +8,15 @@
 
 config_version=4
 
-_global_script_classes=[ {
-"base": "Node",
-"class": "NoiseRNG",
-"language": "GDScript",
-"path": "res://Noise/NoiseRNG.gd"
-} ]
+_global_script_classes=[  ]
 _global_script_class_icons={
-"NoiseRNG": ""
+
 }
 
 [application]
 
-config/name="NewProject"
+config/name="Quenya Flash Cards"
+run/main_scene="res://Main.tscn"
 config/icon="res://icon.png"
 
 [display]
