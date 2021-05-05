@@ -1,4 +1,4 @@
-extends GridContainer
+extends VBoxContainer
 
 # signals
 signal correct_answer_given
