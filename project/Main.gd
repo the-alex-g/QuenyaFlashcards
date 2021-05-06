@@ -106,10 +106,11 @@ func _ready()->void:
 
 func _get_list(lesson_number:String)->void:
 	var words:Dictionary = get('LESS_'+lesson_number+'_WORDS')
+	for word in words:
+		_word_list_display.text += word +': '+words[word]+'\n'
 	var exercises:Dictionary = get('LESS_'+lesson_number+'_EXERCISES')
 	for key in exercises:
 		words[key] = exercises[key]
-		_word_list_display.text += key+': '+exercises[key]+'\n'
 	_word_list_display.text += '\n'+get('LESS_'+lesson_number+'_RULES')
 	_word_list_panel.visible = true
 	_working_list = words
