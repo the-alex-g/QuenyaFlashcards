@@ -5,7 +5,7 @@ extends Control
 # enums
 
 # constants
-const PASSWORD := 'GreyHavens'
+const PASSWORD := 'Grey Havens'
 
 # exported variables
 

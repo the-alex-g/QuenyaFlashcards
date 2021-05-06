@@ -5,27 +5,6 @@ extends Control
 # enums
 
 # constants
-const LESS_1_WORDS := { # Various words
-	'Alcar':'Glory',
-	'Alcarinqua':'Glorious',
-	'Alcarë':'Glory',
-	'Calima':'Bright',
-	'Únótimë':'Uncountable',
-	'Envyinyatar':'Renewer',
-	'Ulundë':'Flood',
-	'Eäruilë':'Seaweed',
-	'Ercassë':'Holly',
-	'Ohtar':'Warrior',
-	'Hrávë':'Flesh',
-	'Nahta':'A bite',
-	'Heru':'Lord',
-	'Nehtë':'Spearhead',
-	'Mahalma':'Throne',
-	'Hellë':'Sky',
-	'Tihtala':'Blinding',
-	'Hlócë':'Snake',
-	'Hísië':'Mist',
-}
 const LESS_2_WORDS := { # Plurals
 	'Minë':'One',
 	'Anar':'The sun',
@@ -61,7 +40,7 @@ const LESS_3_WORDS := { # Dual forms
 	'Talan (talam-)':'Floor',
 	'Nér (ner-)':'Man',
 	'Nís (niss-)':'Woman',
-	'Sar (sard-)':'Pebble',
+	'Sar (sard-)':'Pebble, stone',
 	'Alda':'Tree',
 	'Oron (oront-)':'Mountain',
 }
@@ -74,7 +53,7 @@ const LESS_3_EXERCISES := { # Dual forms and plurals
 	'Talamu':'Floors (dual)',
 	'Neru':'Men (dual)',
 	'Nissu':'Women (dual)',
-	'Sardu':'Pebbles (dual)',
+	'Sardu':'Pebbles, stones (dual)',
 	'Aldu':'Trees (dual)',
 	'Orontu':'Mountains (dual)',
 	'Hendi':'Hands',
@@ -84,6 +63,31 @@ const LESS_3_EXERCISES := { # Dual forms and plurals
 	'Aldar':'Trees',
 }
 const LESS_3_RULES := 'DUAL FORMS: \nDual forms are used to refer to naturally occuring pairs. \nIf the word ends in a vowel and has no Ds or Ts in it, add -t at the end. \nIf the word ends in a vowel but does have Ds or Ts, add -u instead of the final vowel. \nIf the word ends in a constonant, add -u.'
+const LESS_4_WORDS := { #Adjectives
+	'Neldë':'Three',
+	'Ná':'Is',
+	'Nar':'Are',
+	'Vanya':'Beautiful',
+	'Alta':'Big',
+	'Calima':'Bright',
+	'Taura':'Mighty',
+	'Saila':'Wise',
+	'Úmëa':'Evil',
+	'Carnë':'Red',
+	'Ninquë':'White',
+	'Morë':'Black',
+	'Firin':'Dead',
+}
+const LESS_4_EXERCISES := {
+	'̈́Firini neri':'Dead men',
+	'I roccor nar ninqui':'The horses are white',
+	'Eldar nar sailë':'Elves are wise',
+	'I oron ná alta':'The mountain is big',
+	'Vanya aiwë':'Beautiful bird',
+	'I elen ná calima':'The star is bright',
+	'Aran taura':'Mighty king',
+}
+const LESS_4_RULES := 'ADJECTIVES: \nCopulas, like "is" or "are" are not necessary. \nIf the noun the adjective is describing is plural or dual, the adjective will also be plural. \nTo pluralize adjectives that end in -ë, replace the final ë with -i. \nIf the adjective ends in -a but not -ëa, replace the final vowel with -ë.\n If the adjective ends in -ëa, replace it with -ië. \nLast case: if the adjective ends in -in, add -i.\nAdjectives can go either before or after the noun.'
 # exported variables
 
 # variables
@@ -136,12 +140,15 @@ func _generate_question()->void:
 		var answers = [answer]
 		var steev := _working_list.keys()
 		steev.erase(answer)
-		for x in 3:
+		var number_of_answers := 0
+		while number_of_answers <= 3:
 			index = randi()%steev.size()
 			var q:String = steev[index]
 			var fake_answer:String = _working_list[q]
-			answers.append(fake_answer)
-			steev.remove(index)
+			if not answers.has(fake_answer):
+				answers.append(fake_answer)
+				steev.remove(index)
+				number_of_answers += 1
 		answers.shuffle()
 		_answer_buttons.set_answers(answers, answer)
 		_question_label.text = question
