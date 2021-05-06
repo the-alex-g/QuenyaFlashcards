@@ -16,7 +16,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Quenya Flash Cards"
-run/main_scene="res://Main.tscn"
+run/main_scene="res://PasswordScreen.tscn"
 config/icon="res://icon.png"
 
 [display]

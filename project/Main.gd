@@ -97,14 +97,22 @@ onready var _answer_buttons := $AnswerButtons
 onready var _word_list_panel := $Panel
 onready var _word_list_display := $Panel/RichTextLabel
 onready var _lesson_display := $LessonPanel
+onready var _correct_noise := $Correct
+onready var _wrong_noise := $Wrong
+onready var _camera_shake := $AnimationPlayer
+onready var _lesson_finished_paricles := $LessonFinishedParticles
+onready var _lesson_finished_timer := $LessonFinishedTimer
 
 func _ready()->void:
 	randomize()
 	_lesson_display.visible = true
-	_generate_question()
+	_lesson_finished_timer.wait_time = _lesson_finished_paricles.lifetime+0.5
 
 
 func _get_list(lesson_number:String)->void:
+	_question_label.show()
+	_answer_buttons.show()
+	$WordList.show()
 	var words:Dictionary = get('LESS_'+lesson_number+'_WORDS')
 	for word in words:
 		_word_list_display.text += word +': '+words[word]+'\n'
@@ -138,12 +146,21 @@ func _generate_question()->void:
 		_answer_buttons.set_answers(answers, answer)
 		_question_label.text = question
 	else:
-		_lesson_display.visible = true
-
+		_question_label.hide()
+		_answer_buttons.hide()
+		$WordList.hide()
+		_lesson_finished_paricles.emitting = true
+		_lesson_finished_timer.start()
 
 
 func _on_AnswerButtons_correct_answer_given()->void:
+	_correct_noise.play()
 	_generate_question()
+
+
+func _on_AnswerButtons_incorrect_answer_given()->void:
+	_wrong_noise.play()
+	_camera_shake.play("Shake")
 
 
 func _on_ReadyButton_pressed()->void:
@@ -157,3 +174,7 @@ func _on_WordList_pressed()->void:
 func _on_LessonButton_pressed(lesson_number:String)->void:
 	_lesson_display.visible = false
 	_get_list(lesson_number)
+
+
+func _on_LessonFinishedTimer_timeout()->void:
+	_lesson_display.visible = true

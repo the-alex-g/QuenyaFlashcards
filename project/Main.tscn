@@ -1,10 +1,31 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://AnswerButtons.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Main.gd" type="Script" id=2]
 [ext_resource path="res://LessonButton.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Theme.tres" type="Theme" id=4]
 [ext_resource path="res://Fonts/LargeFont.tres" type="DynamicFont" id=5]
+[ext_resource path="res://SFX/Correct.wav" type="AudioStream" id=6]
+[ext_resource path="res://SFX/Wrong.wav" type="AudioStream" id=7]
+
+[sub_resource type="Animation" id=1]
+resource_name = "Shake"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("Camera2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 1, 1 ), Vector2( -1, -1 ), Vector2( 0, 0 ), Vector2( -0.5, -0.5 ), Vector2( 0, 0 ) ]
+}
+
+[sub_resource type="Curve" id=2]
+_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 0.264368, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 ]
 
 [node name="Main" type="Control"]
 anchor_right = 1.0
@@ -110,8 +131,41 @@ margin_right = 217.0
 margin_bottom = 52.0
 text = "Lesson Two: Dual Form"
 lesson_number = 3
+
+[node name="Correct" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
+
+[node name="Wrong" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 7 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+offset = Vector2( 200, 300 )
+current = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/Shake = SubResource( 1 )
+
+[node name="LessonFinishedParticles" type="CPUParticles2D" parent="."]
+position = Vector2( 200, 200 )
+emitting = false
+amount = 50
+lifetime = 2.0
+one_shot = true
+explosiveness = 0.8
+randomness = 0.2
+lifetime_randomness = 0.2
+spread = 180.0
+gravity = Vector2( 0, 80 )
+initial_velocity = 100.0
+scale_amount = 6.0
+scale_amount_curve = SubResource( 2 )
+
+[node name="LessonFinishedTimer" type="Timer" parent="."]
+one_shot = true
 [connection signal="correct_answer_given" from="AnswerButtons" to="." method="_on_AnswerButtons_correct_answer_given"]
+[connection signal="incorrect_answer_given" from="AnswerButtons" to="." method="_on_AnswerButtons_incorrect_answer_given"]
 [connection signal="pressed" from="WordList" to="." method="_on_WordList_pressed"]
 [connection signal="pressed" from="Panel/ReadyButton" to="." method="_on_ReadyButton_pressed"]
 [connection signal="custom_pressed" from="LessonPanel/VBoxContainer/LessonButton" to="." method="_on_LessonButton_pressed"]
 [connection signal="custom_pressed" from="LessonPanel/VBoxContainer/LessonButton2" to="." method="_on_LessonButton_pressed"]
+[connection signal="timeout" from="LessonFinishedTimer" to="." method="_on_LessonFinishedTimer_timeout"]
