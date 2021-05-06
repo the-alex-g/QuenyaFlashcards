@@ -62,7 +62,7 @@ const LESS_3_EXERCISES := { # Dual forms and plurals
 	'Eldu':'Elves (dual)',
 	'Aldar':'Trees',
 }
-const LESS_3_RULES := 'DUAL FORMS: \nDual forms are used to refer to naturally occuring pairs. \nIf the word ends in a vowel and has no Ds or Ts in it, add -t at the end. \nIf the word ends in a vowel but does have Ds or Ts, add -u instead of the final vowel. \nIf the word ends in a constonant, add -u.'
+const LESS_3_RULES := 'DUAL FORMS: \nDual forms are used to refer to naturally occuring pairs. \nIf the word ends in a vowel and has no Ds or Ts in it, add -t at the end. \nIf the word ends in a vowel but does have Ds or Ts, add -u instead of the final vowel. \nIf the word ends in a constonant, add -u. \nAny Quenya word in parethases is stem that endings are added to. \nFor example, the plural of "nís" would be expected as "nísi".\nHowever, with the different stem it is "níssi" instead.'
 const LESS_4_WORDS := { #Adjectives
 	'Neldë':'Three',
 	'Ná':'Is',
