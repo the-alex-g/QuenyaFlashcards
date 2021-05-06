@@ -4,7 +4,7 @@
 [ext_resource path="res://Main.gd" type="Script" id=2]
 [ext_resource path="res://LessonButton.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Theme.tres" type="Theme" id=4]
-[ext_resource path="res://LargeFont.tres" type="DynamicFont" id=5]
+[ext_resource path="res://Fonts/LargeFont.tres" type="DynamicFont" id=5]
 
 [node name="Main" type="Control"]
 anchor_right = 1.0
@@ -31,23 +31,24 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 margin_left = -20.0
-margin_top = -139.0
+margin_top = -195.0
 margin_right = 20.0
-margin_bottom = -15.0
+margin_bottom = -73.0
 
 [node name="WordList" type="Button" parent="."]
 anchor_top = 1.0
 anchor_bottom = 1.0
 margin_left = 15.0
 margin_top = -43.0
-margin_right = 98.0
-margin_bottom = -15.0
+margin_right = 49.0
+margin_bottom = -11.0
 text = "Word List"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Panel" type="Panel" parent="."]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 __meta__ = {
@@ -74,6 +75,7 @@ margin_bottom = -15.0
 text = "Done"
 
 [node name="LessonPanel" type="Panel" parent="."]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 0.264862
@@ -97,15 +99,15 @@ __meta__ = {
 }
 
 [node name="LessonButton" parent="LessonPanel/VBoxContainer" instance=ExtResource( 3 )]
-margin_right = 183.0
-margin_bottom = 28.0
+margin_right = 217.0
+margin_bottom = 24.0
 text = "Lesson One: Plurals"
 lesson_number = 2
 
 [node name="LessonButton2" parent="LessonPanel/VBoxContainer" instance=ExtResource( 3 )]
-margin_top = 32.0
-margin_right = 183.0
-margin_bottom = 60.0
+margin_top = 28.0
+margin_right = 217.0
+margin_bottom = 52.0
 text = "Lesson Two: Dual Form"
 lesson_number = 3
 [connection signal="correct_answer_given" from="AnswerButtons" to="." method="_on_AnswerButtons_correct_answer_given"]
