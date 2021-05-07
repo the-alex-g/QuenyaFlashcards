@@ -141,7 +141,7 @@ func _generate_question()->void:
 		var steev := _working_list.keys()
 		steev.erase(answer)
 		var number_of_answers := 0
-		while number_of_answers <= 3:
+		while number_of_answers < 3:
 			index = randi()%steev.size()
 			var q:String = steev[index]
 			var fake_answer:String = _working_list[q]
