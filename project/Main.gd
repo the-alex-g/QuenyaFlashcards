@@ -88,6 +88,30 @@ const LESS_4_EXERCISES := {
 	'Aran taura':'Mighty king',
 }
 const LESS_4_RULES := 'ADJECTIVES: \nCopulas, like "is" or "are" are not necessary. \nIf the noun the adjective is describing is plural or dual, the adjective will also be plural. \nTo pluralize adjectives that end in -ë, replace the final ë with -i. \nIf the adjective ends in -a but not -ëa, replace the final vowel with -ë.\n If the adjective ends in -ëa, replace it with -ië. \nLast case: if the adjective ends in -in, add -i.\nAdjectives can go either before or after the noun.'
+const LESS_5_WORDS := { # verbs
+	'Canta':'Four',
+	'Nauco':'Dwarf',
+	'Parma':'Book',
+	'Tiuca':'Thick, fat',
+	'Mapa-':'Grasp or seize',
+	'Tir-':'Watch or guard',
+	'Lala-':'Laugh',
+	'Caita-':'Lie, as in "lie down"',
+	'Tulta-':'Summon',
+	'Linda-':'Sing',
+	'Mat-':'Eat',
+	'Cenda-':'Read',
+}
+const LESS_5_EXERCISES := {
+	'I elda céndaë':'The elf is reading',
+	'I roccor mátar':'The horses are eating',
+	'Neldë naucor tírar aiwë':'Three dwarves are watching a bird',
+	'I nauco ná tiuca':'The dwarf is fat',
+	'I parma carnë':'The red book',
+	'I nér ar i nís lálëar':'The man and the woman are laughing',
+	'I aran túltëa i tári':'The king is summoning the queen',
+}
+const LESS_5_RULES := 'All the words with a "-" at the end are verbs.\nThe present tense is formed by adding an -a if the verb ends in a constonant.\nIf the verb ends in -a, change the a to -ëa.\nIn all cases, lengthen the stem vowel.\nVerbs in Quenya agree with the subject in number.\nVerbs are made plural by adding -r after adding any tense endings.\nVerbs are also plural if there are more than one subject, like so:\n"The king and the queen are eating" would be "I aran ar i tárí \nThe present tense in Quenya implies a continuing action.'
 # exported variables
 
 # variables

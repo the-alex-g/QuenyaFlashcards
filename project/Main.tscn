@@ -42,6 +42,7 @@ margin_top = 15.0
 margin_bottom = 14.0
 custom_fonts/font = ExtResource( 5 )
 align = 1
+autowrap = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -139,6 +140,13 @@ margin_bottom = 52.0
 text = "Lesson Three: Adjectives"
 lesson_number = 4
 
+[node name="LessonButton4" parent="LessonPanel/VBoxContainer" instance=ExtResource( 3 )]
+margin_top = 28.0
+margin_right = 217.0
+margin_bottom = 52.0
+text = "Lesson Four: Verbs"
+lesson_number = 5
+
 [node name="Correct" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 6 )
 
@@ -176,4 +184,5 @@ one_shot = true
 [connection signal="custom_pressed" from="LessonPanel/VBoxContainer/LessonButton" to="." method="_on_LessonButton_pressed"]
 [connection signal="custom_pressed" from="LessonPanel/VBoxContainer/LessonButton2" to="." method="_on_LessonButton_pressed"]
 [connection signal="custom_pressed" from="LessonPanel/VBoxContainer/LessonButton3" to="." method="_on_LessonButton_pressed"]
+[connection signal="custom_pressed" from="LessonPanel/VBoxContainer/LessonButton4" to="." method="_on_LessonButton_pressed"]
 [connection signal="timeout" from="LessonFinishedTimer" to="." method="_on_LessonFinishedTimer_timeout"]
