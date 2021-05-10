@@ -100,7 +100,7 @@ const LESS_5_WORDS := { # verbs
 	'Cenda-':'Read',
 }
 const LESS_5_EXERCISES := { # verbs
-	'I elda céndaë':'The elf is reading',
+	'I elda céndë':'The elf is reading',
 	'I roccor mátar':'The horses are eating',
 	'Neldë naucor tírar aiwë':'Three dwarves are watching a bird',
 	'I nauco ná tiuca':'The dwarf is fat',
@@ -124,7 +124,7 @@ const LESS_6_WORDS := { # more verbs
 	'Harya-':'Possess, have',
 }
 const LESS_6_EXERCISES := { # past tense
-	'I elen sila':'The star is shining',
+	'I elen síla':'The star is shining',
 	'I elda tencë parma':'The elf wrote a book',
 	'Lempë naucor campër':'Five dwarves jumped',
 	'I harma sillë':'The treasure shone',
