@@ -135,55 +135,67 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -102.0
-margin_top = -75.5
-margin_right = 102.0
-margin_bottom = 75.5
+margin_left = -113.5
+margin_top = -113.5
+margin_right = 113.5
+margin_bottom = 113.5
 grow_horizontal = 2
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="LessonButton" parent="LessonPicker/VBoxContainer" instance=ExtResource( 3 )]
-margin_right = 204.0
-margin_bottom = 27.0
+margin_right = 227.0
+margin_bottom = 29.0
 text = "Lesson One: Plurals"
 lesson_number = 2
 
 [node name="LessonButton2" parent="LessonPicker/VBoxContainer" instance=ExtResource( 3 )]
-margin_top = 31.0
-margin_right = 204.0
-margin_bottom = 58.0
+margin_top = 33.0
+margin_right = 227.0
+margin_bottom = 62.0
 text = "Lesson Two: Dual Form"
 lesson_number = 3
 
 [node name="LessonButton3" parent="LessonPicker/VBoxContainer" instance=ExtResource( 3 )]
-margin_top = 62.0
-margin_right = 204.0
-margin_bottom = 89.0
+margin_top = 66.0
+margin_right = 227.0
+margin_bottom = 95.0
 text = "Lesson Three: Adjectives"
 lesson_number = 4
 
 [node name="LessonButton4" parent="LessonPicker/VBoxContainer" instance=ExtResource( 3 )]
-margin_top = 93.0
-margin_right = 204.0
-margin_bottom = 120.0
+margin_top = 99.0
+margin_right = 227.0
+margin_bottom = 128.0
 text = "Lesson Four: Verbs"
 lesson_number = 5
 
 [node name="LessonButton5" parent="LessonPicker/VBoxContainer" instance=ExtResource( 3 )]
-margin_top = 124.0
-margin_right = 204.0
-margin_bottom = 151.0
+margin_top = 132.0
+margin_right = 227.0
+margin_bottom = 161.0
 text = "Lesson Five: Past Tense"
 lesson_number = 6
 
 [node name="LessonButton6" parent="LessonPicker/VBoxContainer" instance=ExtResource( 3 )]
-margin_top = 155.0
-margin_right = 204.0
-margin_bottom = 182.0
+margin_top = 165.0
+margin_right = 227.0
+margin_bottom = 194.0
 text = "Lesson Six: Future Tense"
 lesson_number = 7
+
+[node name="LessonButton7" parent="LessonPicker/VBoxContainer" instance=ExtResource( 3 )]
+margin_top = 198.0
+margin_right = 227.0
+margin_bottom = 227.0
+text = "Lesson Seven: Perfect Tense"
+lesson_number = 8
+
+[node name="All" type="Button" parent="LessonPicker/VBoxContainer"]
+margin_right = 8.0
+margin_bottom = 29.0
+text = "Practice all the Words"
 
 [node name="Correct" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 6 )
@@ -225,4 +237,6 @@ one_shot = true
 [connection signal="custom_pressed" from="LessonPicker/VBoxContainer/LessonButton4" to="." method="_on_LessonButton_pressed"]
 [connection signal="custom_pressed" from="LessonPicker/VBoxContainer/LessonButton5" to="." method="_on_LessonButton_pressed"]
 [connection signal="custom_pressed" from="LessonPicker/VBoxContainer/LessonButton6" to="." method="_on_LessonButton_pressed"]
+[connection signal="custom_pressed" from="LessonPicker/VBoxContainer/LessonButton7" to="." method="_on_LessonButton_pressed"]
+[connection signal="pressed" from="LessonPicker/VBoxContainer/All" to="." method="_on_All_pressed"]
 [connection signal="timeout" from="LessonFinishedTimer" to="." method="_on_LessonFinishedTimer_timeout"]

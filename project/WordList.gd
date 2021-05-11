@@ -26,7 +26,7 @@ const LESS_2_EXERCISES := { # plurals
 	'Tárir':'Queens',
 	'Tasari':'Willows',
 }
-const LESS_2_RULES := 'PLURALS: \nIf the word ends in a vowel or ie, but not just e, \nadd -r to the end of the word. \nIf the word ends in a consonant, add -i.'
+const LESS_2_RULES := 'PLURALS: \nIf the word ends in a vowel or ie, but not just e, \nadd -r to the end of the word. \nIf the word ends in a consonant, add -i. If the word ends in an -ë, replace the -ë with an -i.'
 const LESS_3_WORDS := { # more nouns
 	'Atta':'Two',
 	'Hen (hend-)':'Eye',
@@ -157,3 +157,35 @@ const LESS_7_EXERCISES := { # future and aorist tenses
 	'I aiwer linduvar':'The birds will sing',
 }
 const LESS_7_RULES := 'FUTURE and AORIST TENSES:\nThe future tense of a verb is formed by adding -uva to the end of the word.\nIf the verb ends in -a, but that -a is not the only vowel in the stem, remove the final -a.\nThe Aorist tense is used to denote an action such as "eats", instead of the present-tense form "is eating".\nTo form the Aorist tense, verbs ending in -a stay the same. If the verb ends in a consonant but is not plural, add -ë to the end. If the verb does need to be plural, the -ë becomes -i.'
+const LESS_8_WORDS := { # more verbs
+	'-n':'I',
+	'-nyë':'I, long form',
+	'-l':'You (plural or singular polite)',
+	'-lyë':'You (plural or singular polite), long form',
+	'-s':'It',
+	'Otso':'Seven',
+	'Seldo':'Boy',
+	'Mól':'Slave',
+	'An':'for, since, because',
+	'Tul-':'Come',
+	'Lanta-':'Fall',
+	'Nurta-':'Hide',
+	'Lerya-':'Release',
+	'Metya-':'End',
+	'Roita-':'Pursue',
+	'Laita-':'Bless, praise',
+	'Imbë':'Between',
+}
+const LESS_8_EXERCISES := {
+	'Oriotienyes':'I have pursued it',
+	'I aldar alantier':'The trees have fallen',
+	'Elérien otso Atan':'I have released seven men',
+	'Unúrtien alta harma':'I have hidden a great treasure',
+	'Ecénien rimbë aiwi':'I have seen many birds',
+	'Ciryat utúlier':'A pair of great ships has come',
+	'Cendeal i parma':'You are reading the book',
+	'Imbë i aldar':'Between the trees',
+	'Naucor roita harma':'Dwarves pursue treasure',
+}
+const LESS_8_RULES := 'PRESENT PERFECT and PRONOUNS:\nThe present tense of a verb is used to show something that happened and is still true, such as "I have come" (and am still here) as opposed to "I came".\nThe perfect tense is formed by adding -ië at the end, and lengthening the stem vowel if it is not followed by a pair of consonants. If the verb ends in an -a or -ya, remove the -a or -ya before adding any endings. A prefix, known as the augment, is also added, and the augment is the same as the stem vowel but is short.\nPronouns are suffixed onto the verb. More than one can be added, in the order subject-verb. If two pronouns are added, the first one must be in the long form if there is one. The pronouns are listed above.'
+const LESSONS := 8

@@ -110,3 +110,33 @@ func _on_LessonFinishedTimer_timeout()->void:
 	_lesson_picker.visible = true
 	_lesson.visible = false
 	_word_list.visible = false
+
+
+func _on_All_pressed()->void:
+	_lesson_picker.visible = false
+	for x in LESSONS:
+		x += 1
+		if x >= 2:
+			var lesson_number := str(x)
+			var lesson_words:Dictionary = get('LESS_'+lesson_number+'_WORDS')
+			var lesson_exercies:Dictionary = get('LESS_'+lesson_number+'_EXERCISES')
+			for word in lesson_words:
+				var spliced_word:String = word+': '+lesson_words[word]+'\n'
+				_working_list[word] = lesson_words[word]
+				_word_list_display.text += spliced_word
+			for exercise in lesson_exercies:
+				_working_list[exercise] = lesson_exercies[exercise]
+				print(exercise)
+			_word_list_display.text += '\n'
+	for x in LESSONS:
+		x += 1
+		if x >= 2:
+			var lesson_number := str(x)
+			var lesson_rules:String = get('LESS_'+lesson_number+'_RULES')
+			_word_list_display.text += '\n'+lesson_rules+'\n'
+	_word_list_display.text += CREDITS
+	_word_list.visible = true
+	_word_list_display.visible = true
+	for question in _working_list:
+		_questions.append(question)
+	_generate_question()
