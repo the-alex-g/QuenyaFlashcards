@@ -9,11 +9,10 @@
 [ext_resource path="res://SFX/Wrong.wav" type="AudioStream" id=7]
 [ext_resource path="res://VineBorder.png" type="Texture" id=8]
 
-[sub_resource type="StyleBoxFlat" id=3]
+[sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.294118, 0.294118, 0.294118, 0.776471 )
 
-[sub_resource type="Animation" id=1]
-resource_name = "Shake"
+[sub_resource type="Animation" id=2]
 length = 0.5
 tracks/0/type = "value"
 tracks/0/path = NodePath("Camera2D:position")
@@ -28,7 +27,7 @@ tracks/0/keys = {
 "values": [ Vector2( 0, 0 ), Vector2( 1, 1 ), Vector2( -1, -1 ), Vector2( 0, 0 ), Vector2( -0.5, -0.5 ), Vector2( 0, 0 ) ]
 }
 
-[sub_resource type="Curve" id=2]
+[sub_resource type="Curve" id=3]
 _data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 0.264368, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 ]
 
 [node name="Main" type="Control"]
@@ -62,6 +61,7 @@ __meta__ = {
 
 [node name="QuestionLabel" type="Label" parent="Lesson"]
 anchor_right = 1.0
+margin_top = 100.0
 margin_bottom = 45.0
 custom_fonts/font = ExtResource( 5 )
 align = 1
@@ -100,12 +100,14 @@ anchor_bottom = 1.0
 [node name="Panel" type="Panel" parent="WordListDisplay"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-custom_styles/panel = SubResource( 3 )
+custom_styles/panel = SubResource( 1 )
 
 [node name="RichTextLabel" type="RichTextLabel" parent="WordListDisplay"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_bottom = -60.0
+focus_mode = 2
+selection_enabled = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -194,7 +196,7 @@ offset = Vector2( 200, 300 )
 current = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/Shake = SubResource( 1 )
+anims/Shake = SubResource( 2 )
 
 [node name="LessonFinishedParticles" type="CPUParticles2D" parent="."]
 position = Vector2( 200, 200 )
@@ -209,7 +211,7 @@ spread = 180.0
 gravity = Vector2( 0, 80 )
 initial_velocity = 100.0
 scale_amount = 6.0
-scale_amount_curve = SubResource( 2 )
+scale_amount_curve = SubResource( 3 )
 
 [node name="LessonFinishedTimer" type="Timer" parent="."]
 one_shot = true

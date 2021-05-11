@@ -5,6 +5,7 @@ extends WordList
 # enums
 
 # constants
+const CREDITS := '\n\nThe lists of words were taken from the Ardalambion Quenya lessons at\nhttps://folk.uib.no/hnohf/qcourse.htm?fbclid=IwAR3g_yicY3sQyGnPlhfzvFlYmDurnot0O3Gw-EpuZzqGfpdoasm6buV1fN8'
 
 # exported variables
 
@@ -43,6 +44,7 @@ func _get_list(lesson_number:String)->void:
 	for key in exercises:
 		words[key] = exercises[key]
 	_word_list_display.text += '\n'+get('LESS_'+lesson_number+'_RULES')
+	_word_list_display.text += CREDITS
 	_word_list.visible = true
 	_word_list_display.visible = true
 	_working_list = words
@@ -96,7 +98,7 @@ func _on_ReadyButton_pressed()->void:
 
 func _on_WordList_pressed()->void:
 	_word_list.visible = true
-	_lesson.visible = true
+	_lesson.visible = false
 
 
 func _on_LessonButton_pressed(lesson_number:String)->void:
