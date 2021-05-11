@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://AnswerButtons.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Main.gd" type="Script" id=2]
@@ -7,6 +7,10 @@
 [ext_resource path="res://Fonts/LargeFont.tres" type="DynamicFont" id=5]
 [ext_resource path="res://SFX/Correct.wav" type="AudioStream" id=6]
 [ext_resource path="res://SFX/Wrong.wav" type="AudioStream" id=7]
+[ext_resource path="res://VineBorder.png" type="Texture" id=8]
+
+[sub_resource type="StyleBoxFlat" id=3]
+bg_color = Color( 0.294118, 0.294118, 0.294118, 0.776471 )
 
 [sub_resource type="Animation" id=1]
 resource_name = "Shake"
@@ -36,10 +40,29 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="QuestionLabel" type="Label" parent="."]
+[node name="Background" type="ColorRect" parent="."]
 anchor_right = 1.0
-margin_top = 15.0
-margin_bottom = 14.0
+anchor_bottom = 1.0
+color = Color( 0.294118, 0.294118, 0.294118, 1 )
+
+[node name="TextureRect" type="TextureRect" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+texture = ExtResource( 8 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Lesson" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="QuestionLabel" type="Label" parent="Lesson"]
+anchor_right = 1.0
+margin_bottom = 45.0
 custom_fonts/font = ExtResource( 5 )
 align = 1
 autowrap = true
@@ -47,37 +70,39 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="AnswerButtons" parent="." instance=ExtResource( 1 )]
+[node name="AnswerButtons" parent="Lesson" instance=ExtResource( 1 )]
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 margin_left = -20.0
-margin_top = -195.0
+margin_top = -182.0
 margin_right = 20.0
-margin_bottom = -73.0
+margin_bottom = -60.0
 
-[node name="WordList" type="Button" parent="."]
+[node name="WordList" type="Button" parent="Lesson"]
 anchor_top = 1.0
 anchor_bottom = 1.0
-margin_left = 15.0
-margin_top = -43.0
-margin_right = 49.0
-margin_bottom = -11.0
+margin_left = 30.0
+margin_top = -52.0
+margin_right = 117.0
+margin_bottom = -20.0
 text = "Word List"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Panel" type="Panel" parent="."]
+[node name="WordListDisplay" type="Control" parent="."]
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
-[node name="RichTextLabel" type="RichTextLabel" parent="Panel"]
+[node name="Panel" type="Panel" parent="WordListDisplay"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_styles/panel = SubResource( 3 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="WordListDisplay"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_bottom = -60.0
@@ -85,7 +110,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ReadyButton" type="Button" parent="Panel"]
+[node name="ReadyButton" type="Button" parent="WordListDisplay"]
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
@@ -96,16 +121,14 @@ margin_right = 40.0
 margin_bottom = -15.0
 text = "Done"
 
-[node name="LessonPanel" type="Panel" parent="."]
+[node name="LessonPicker" type="Control" parent="."]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 0.264862
 margin_right = 0.264862
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
-[node name="VBoxContainer" type="VBoxContainer" parent="LessonPanel"]
+[node name="VBoxContainer" type="VBoxContainer" parent="LessonPicker"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -119,41 +142,41 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="LessonButton" parent="LessonPanel/VBoxContainer" instance=ExtResource( 3 )]
+[node name="LessonButton" parent="LessonPicker/VBoxContainer" instance=ExtResource( 3 )]
 margin_right = 204.0
 margin_bottom = 27.0
 text = "Lesson One: Plurals"
 lesson_number = 2
 
-[node name="LessonButton2" parent="LessonPanel/VBoxContainer" instance=ExtResource( 3 )]
+[node name="LessonButton2" parent="LessonPicker/VBoxContainer" instance=ExtResource( 3 )]
 margin_top = 31.0
 margin_right = 204.0
 margin_bottom = 58.0
 text = "Lesson Two: Dual Form"
 lesson_number = 3
 
-[node name="LessonButton3" parent="LessonPanel/VBoxContainer" instance=ExtResource( 3 )]
+[node name="LessonButton3" parent="LessonPicker/VBoxContainer" instance=ExtResource( 3 )]
 margin_top = 62.0
 margin_right = 204.0
 margin_bottom = 89.0
 text = "Lesson Three: Adjectives"
 lesson_number = 4
 
-[node name="LessonButton4" parent="LessonPanel/VBoxContainer" instance=ExtResource( 3 )]
+[node name="LessonButton4" parent="LessonPicker/VBoxContainer" instance=ExtResource( 3 )]
 margin_top = 93.0
 margin_right = 204.0
 margin_bottom = 120.0
 text = "Lesson Four: Verbs"
 lesson_number = 5
 
-[node name="LessonButton5" parent="LessonPanel/VBoxContainer" instance=ExtResource( 3 )]
+[node name="LessonButton5" parent="LessonPicker/VBoxContainer" instance=ExtResource( 3 )]
 margin_top = 124.0
 margin_right = 204.0
 margin_bottom = 151.0
 text = "Lesson Five: Past Tense"
 lesson_number = 6
 
-[node name="LessonButton6" parent="LessonPanel/VBoxContainer" instance=ExtResource( 3 )]
+[node name="LessonButton6" parent="LessonPicker/VBoxContainer" instance=ExtResource( 3 )]
 margin_top = 155.0
 margin_right = 204.0
 margin_bottom = 182.0
@@ -190,14 +213,14 @@ scale_amount_curve = SubResource( 2 )
 
 [node name="LessonFinishedTimer" type="Timer" parent="."]
 one_shot = true
-[connection signal="correct_answer_given" from="AnswerButtons" to="." method="_on_AnswerButtons_correct_answer_given"]
-[connection signal="incorrect_answer_given" from="AnswerButtons" to="." method="_on_AnswerButtons_incorrect_answer_given"]
-[connection signal="pressed" from="WordList" to="." method="_on_WordList_pressed"]
-[connection signal="pressed" from="Panel/ReadyButton" to="." method="_on_ReadyButton_pressed"]
-[connection signal="custom_pressed" from="LessonPanel/VBoxContainer/LessonButton" to="." method="_on_LessonButton_pressed"]
-[connection signal="custom_pressed" from="LessonPanel/VBoxContainer/LessonButton2" to="." method="_on_LessonButton_pressed"]
-[connection signal="custom_pressed" from="LessonPanel/VBoxContainer/LessonButton3" to="." method="_on_LessonButton_pressed"]
-[connection signal="custom_pressed" from="LessonPanel/VBoxContainer/LessonButton4" to="." method="_on_LessonButton_pressed"]
-[connection signal="custom_pressed" from="LessonPanel/VBoxContainer/LessonButton5" to="." method="_on_LessonButton_pressed"]
-[connection signal="custom_pressed" from="LessonPanel/VBoxContainer/LessonButton6" to="." method="_on_LessonButton_pressed"]
+[connection signal="correct_answer_given" from="Lesson/AnswerButtons" to="." method="_on_AnswerButtons_correct_answer_given"]
+[connection signal="incorrect_answer_given" from="Lesson/AnswerButtons" to="." method="_on_AnswerButtons_incorrect_answer_given"]
+[connection signal="pressed" from="Lesson/WordList" to="." method="_on_WordList_pressed"]
+[connection signal="pressed" from="WordListDisplay/ReadyButton" to="." method="_on_ReadyButton_pressed"]
+[connection signal="custom_pressed" from="LessonPicker/VBoxContainer/LessonButton" to="." method="_on_LessonButton_pressed"]
+[connection signal="custom_pressed" from="LessonPicker/VBoxContainer/LessonButton2" to="." method="_on_LessonButton_pressed"]
+[connection signal="custom_pressed" from="LessonPicker/VBoxContainer/LessonButton3" to="." method="_on_LessonButton_pressed"]
+[connection signal="custom_pressed" from="LessonPicker/VBoxContainer/LessonButton4" to="." method="_on_LessonButton_pressed"]
+[connection signal="custom_pressed" from="LessonPicker/VBoxContainer/LessonButton5" to="." method="_on_LessonButton_pressed"]
+[connection signal="custom_pressed" from="LessonPicker/VBoxContainer/LessonButton6" to="." method="_on_LessonButton_pressed"]
 [connection signal="timeout" from="LessonFinishedTimer" to="." method="_on_LessonFinishedTimer_timeout"]

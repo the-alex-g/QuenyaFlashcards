@@ -14,11 +14,12 @@ var _working_list := {}
 var _questions := []
 
 # onready variables
-onready var _question_label := $QuestionLabel
-onready var _answer_buttons := $AnswerButtons
-onready var _word_list_panel := $Panel
-onready var _word_list_display := $Panel/RichTextLabel
-onready var _lesson_display := $LessonPanel
+onready var _question_label := $Lesson/QuestionLabel
+onready var _answer_buttons := $Lesson/AnswerButtons
+onready var _word_list := $WordListDisplay
+onready var _word_list_display := $WordListDisplay/RichTextLabel
+onready var _lesson := $Lesson
+onready var _lesson_picker := $LessonPicker
 onready var _correct_noise := $Correct
 onready var _wrong_noise := $Wrong
 onready var _camera_shake := $AnimationPlayer
@@ -27,14 +28,14 @@ onready var _lesson_finished_timer := $LessonFinishedTimer
 
 func _ready()->void:
 	randomize()
-	_lesson_display.visible = true
+	_lesson_picker.visible = true
+	_word_list_display.visible = false
+	_lesson.visible = false
 	_lesson_finished_timer.wait_time = _lesson_finished_paricles.lifetime+0.5
 
 
 func _get_list(lesson_number:String)->void:
-	_question_label.show()
-	_answer_buttons.show()
-	$WordList.show()
+	_lesson_picker.visible = false
 	var words:Dictionary = get('LESS_'+lesson_number+'_WORDS')
 	for word in words:
 		_word_list_display.text += word +': '+words[word]+'\n'
@@ -42,7 +43,8 @@ func _get_list(lesson_number:String)->void:
 	for key in exercises:
 		words[key] = exercises[key]
 	_word_list_display.text += '\n'+get('LESS_'+lesson_number+'_RULES')
-	_word_list_panel.visible = true
+	_word_list.visible = true
+	_word_list_display.visible = true
 	_working_list = words
 	for question in _working_list:
 		_questions.append(question)
@@ -71,9 +73,8 @@ func _generate_question()->void:
 		_answer_buttons.set_answers(answers, answer)
 		_question_label.text = question
 	else:
-		_question_label.hide()
-		_answer_buttons.hide()
-		$WordList.hide()
+		_lesson.visible = false
+		_word_list.visible = false
 		_lesson_finished_paricles.emitting = true
 		_lesson_finished_timer.start()
 
@@ -89,17 +90,21 @@ func _on_AnswerButtons_incorrect_answer_given()->void:
 
 
 func _on_ReadyButton_pressed()->void:
-	_word_list_panel.visible = false
+	_word_list.visible = false
+	_lesson.visible = true
 
 
 func _on_WordList_pressed()->void:
-	_word_list_panel.visible = true
+	_word_list.visible = true
+	_lesson.visible = true
 
 
 func _on_LessonButton_pressed(lesson_number:String)->void:
-	_lesson_display.visible = false
+	_lesson_picker.visible = false
 	_get_list(lesson_number)
 
 
 func _on_LessonFinishedTimer_timeout()->void:
-	_lesson_display.visible = true
+	_lesson_picker.visible = true
+	_lesson.visible = false
+	_word_list.visible = false
