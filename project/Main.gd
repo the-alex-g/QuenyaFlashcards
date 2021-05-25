@@ -37,6 +37,7 @@ func _ready()->void:
 
 func _get_list(lesson_number:String)->void:
 	_lesson_picker.visible = false
+	_word_list_display.text = ''
 	var words:Dictionary = get('LESS_'+lesson_number+'_WORDS')
 	for word in words:
 		_word_list_display.text += word +': '+words[word]+'\n'
