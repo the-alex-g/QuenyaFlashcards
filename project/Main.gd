@@ -32,7 +32,8 @@ func _ready()->void:
 	_lesson_picker.visible = true
 	_word_list_display.visible = false
 	_lesson.visible = false
-	_lesson_finished_timer.wait_time = _lesson_finished_paricles.lifetime+0.5
+	_lesson_finished_timer.wait_time = _lesson_finished_paricles.lifetime+0.3
+	_lesson_finished_paricles.emit()
 
 
 func _get_list(lesson_number:String)->void:
@@ -78,7 +79,7 @@ func _generate_question()->void:
 	else:
 		_lesson.visible = false
 		_word_list.visible = false
-		_lesson_finished_paricles.emitting = true
+		_lesson_finished_paricles.emit()
 		_lesson_finished_timer.start()
 
 
