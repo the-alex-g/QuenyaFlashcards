@@ -182,10 +182,10 @@ const LESS_8_EXERCISES := {
 	'Elérien otso Atan':'I have released seven men',
 	'Unúrtien alta harma':'I have hidden a great treasure',
 	'Ecénien rimbë aiwi':'I have seen many birds',
-	'Ciryat utúlier':'A pair of great ships has come',
+	'Ciryat utúlier':'A pair of ships has come',
 	'Cendeal i parma':'You are reading the book',
 	'Imbë i aldar':'Between the trees',
-	'Naucor roita harma':'Dwarves pursue treasure',
+	'Naucor roitar harma':'Dwarves pursue treasure',
 }
 const LESS_8_RULES := 'PRESENT PERFECT and PRONOUNS:\nThe present tense of a verb is used to show something that happened and is still true, such as "I have come" (and am still here) as opposed to "I came".\nThe perfect tense is formed by adding -ië at the end, and lengthening the stem vowel if it is not followed by a pair of consonants. If the verb ends in an -a or -ya, remove the -a or -ya before adding any endings. A prefix, known as the augment, is also added, and the augment is the same as the stem vowel but is short.\nPronouns are suffixed onto the verb. More than one can be added, in the order subject-verb. If two pronouns are added, the first one must be in the long form if there is one. The pronouns are listed above.'
 const LESSONS := 8
