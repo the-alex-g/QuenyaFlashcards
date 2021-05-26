@@ -33,7 +33,6 @@ func _ready()->void:
 	_word_list_display.visible = false
 	_lesson.visible = false
 	_lesson_finished_timer.wait_time = _lesson_finished_paricles.lifetime+0.3
-	_lesson_finished_paricles.emit()
 
 
 func _get_list(lesson_number:String)->void:
