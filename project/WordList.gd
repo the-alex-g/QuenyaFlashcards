@@ -129,7 +129,7 @@ const LESS_6_EXERCISES := { # past tense
 	'Lempë naucor campër':'Five dwarves jumped',
 	'I harma sillë':'The treasure shone',
 	'Elda cennë ninquë aiwë':'An elf saw a white bird',
-	'Naucor haryëar harma':'Dwarves have treasure',
+	'I elda haryëa parma':'The elf has a book',
 	'Canta eldar ar neldë naucor lindanër':'Four elves and three dwarves sang',
 }
 const LESS_6_RULES := 'PAST TENSE:\nThe past tense of a verb is formed by adding -në to the end of the word.\nIf the word does not end in -r, -n, -m, or a vowel, the -n in the ending is switched with the final letter.\nThen, if the displaced consonant was -p, the -n becomes a -m. If it was -l, the -n also becomes -l.'
@@ -153,7 +153,7 @@ const LESS_7_EXERCISES := { # future and aorist tenses
 	'Ilyë eleni silir':'All stars shine',
 	'I atan firuva':'The man will die',
 	'Rimbë ohtari firuvar':'Many warriors will die',
-	'I elda cenuva enquë aiwer':'The elf will be seeing six birds',
+	'I elda cenuva enquë aiwer':'The elf will see six birds',
 	'I aiwer linduvar':'The birds will sing',
 }
 const LESS_7_RULES := 'FUTURE and AORIST TENSES:\nThe future tense of a verb is formed by adding -uva to the end of the word.\nIf the verb ends in -a, but that -a is not the only vowel in the stem, remove the final -a.\nThe Aorist tense is used to denote an action such as "eats", instead of the present-tense form "is eating".\nTo form the Aorist tense, verbs ending in -a stay the same. If the verb ends in a consonant but is not plural, add -ë to the end. If the verb does need to be plural, the -ë becomes -i.'
@@ -177,7 +177,7 @@ const LESS_8_WORDS := { # more verbs
 	'Imbë':'Between',
 }
 const LESS_8_EXERCISES := {
-	'Oriotienyes':'I have pursued it',
+	'Rioteanyes':'I am pursuing it',
 	'I aldar alantier':'The trees have fallen',
 	'Elérien otso Atan':'I have released seven men',
 	'Unúrtien alta harma':'I have hidden a great treasure',
