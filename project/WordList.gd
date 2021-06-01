@@ -100,7 +100,7 @@ const LESS_5_WORDS := { # verbs
 	'Cenda-':'Read',
 }
 const LESS_5_EXERCISES := { # verbs
-	'I elda céndë':'The elf is reading',
+	'I elda céndëa':'The elf is reading',
 	'I roccor mátar':'The horses are eating',
 	'Neldë naucor tírar aiwë':'Three dwarves are watching a bird',
 	'I nauco ná tiuca':'The dwarf is fat',
